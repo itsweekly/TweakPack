@@ -9,50 +9,40 @@ SETLOCAL EnableDelayedExpansion
 echo Disabling UAC
 C:\Users\%USERNAME%\TweakPack\src\tools\PowerRun.exe "C:\Users\%USERNAME%\TweakPack\src\scripts\Disable-UAC.reg"
 echo Success
-pause
 ::Defender
 echo Disabling Defender
 C:\Users\%USERNAME%\TweakPack\src\tools\PowerRun.exe "C:\Users\%USERNAME%\TweakPack\src\scripts\Disable-Defender.reg"
 echo Success
-pause
 echo Disabling SmartScreen
 C:\Users\%USERNAME%\TweakPack\src\tools\PowerRun.exe "C:\Users\%USERNAME%\TweakPack\src\scripts\Disable-SmartScreen.reg"
 echo Success
-pause
 ::Powerplan
 echo Importing PowerPlan
 powercfg -import "C:\Users\%USERNAME%\TweakPack\src\scripts\Atlas.pow" 11111111-1111-1111-1111-111111111111
 powercfg /s 11111111-1111-1111-1111-111111111111
 echo Success
-pause
 echo Disabling Power Throttling
 C:\Users\%USERNAME%\TweakPack\src\tools\PowerRun.exe "C:\Users\%USERNAME%\TweakPack\src\scripts\Disable-Power-Throttling.reg"
 echo Success
-pause
 ::Disable Spectre-Meltdown
 C:\Users\%USERNAME%\TweakPack\src\tools\PowerRun.exe "C:\Users\%USERNAME%\TweakPack\src\scripts\Disable-Spectre-Meltdown.reg"
 echo Success
-pause
 ::Temp Files
 echo Deleting Temp Files
 C:\Users\%USERNAME%\TweakPack\src\scripts\Delete-Temp-Files.cmd
 echo Success
-pause
 ::Log Files
 echo Deleting Log Files
 C:\Users\%USERNAME%\TweakPack\src\scripts\Delete-Log-Files.cmd
 echo Success
-pause
 ::Drivers
 echo Installing Drivers
 echo Installing Vcredist
 C:\Users\%USERNAME%\TweakPack\src\scripts\vcredist\install_all.bat
 echo Success
-pause
 echo Installing Runtime
 C:\Users\%USERNAME%\TweakPack\src\scripts\dxwebsetup.exe /Q
 echo Success
-pause
 ::Disabling Windows Updates
 echo Disabling Windows Updates
 reg add "HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate" /v "ExcludeWUDriversInQualityUpdate" /t REG_DWORD /d "1" /f
